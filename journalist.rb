@@ -23,7 +23,7 @@ def aude(x)
       if x[i].include?('aude') #vérifie si la string contenue à l'index i de x passée en minuscule contient la string "aude"
         n +=1 #incrémente le compteur de mot
       end
-      i += 1 #incrémente le compteur de boucles 
+      i += 1 #incrémente le compteur de boucles
   end
   return n
 
@@ -90,7 +90,8 @@ def perform(x) #fonction regrouppant les autres et ajoutant du texte afin d'amé
   puts "-" * 20
   puts "Nombre de '_' dasn l'ensemble des hadles : " + underscore(x).to_s
   puts "-" * 20
-  puts "Rangement alphabetique : " + alphabetique(x).to_s
+  puts "Rangement alphabetique : "
+  puts alphabetique(x)
   puts "-" * 20
 end
 

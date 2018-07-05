@@ -68,7 +68,7 @@ def contiens_majuscule(x)
   n = 0
   x.each do
     if x[i] != x[i].downcase
-      n +=1 
+      n +=1
     end
     i += 1
   end
@@ -93,16 +93,26 @@ end
 
 puts majuscles_2(journalistes)
 
-=end 
-
+=end
 
 def underscore(x)
+  i = 0
+  n = 0
   x.each do
-
+    j = x[i].split(//)
+    k = 0
+    j.each do
+      if j[k] == '_'
+        n +=1
+      end
+      k += 1
+    end
+    i += 1
   end
+  return n
 end
 
-
+puts underscore(journalistes)
 
 def alphabetique(x)
 

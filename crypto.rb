@@ -49,3 +49,18 @@ def crypto_coin(x)
 end
 
 puts crypto_coin(@crypto_values)
+
+
+def values_under_6000(x)
+	n = 0
+	x.each do |key, value|
+		value = value.delete_prefix("$").to_f
+		if value < 6000
+			n += 1
+		end
+	end
+	return n
+end		
+
+puts values_under_6000(@crypto_values)
+

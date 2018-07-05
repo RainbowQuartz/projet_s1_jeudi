@@ -60,7 +60,10 @@ def hash_under_6000(x)
   return hash
 end
 
-
+def affichage_keys(x)
+  array = x.keys #permet d'afficher uniquement les clés du hash x dans un nouvel array
+  return array
+end
 
 def perform #Appelle toutes les autres fonctions et met en forme les réponses
   crypto_values = assemblage(@names, @values)
@@ -71,7 +74,8 @@ def perform #Appelle toutes les autres fonctions et met en forme les réponses
   puts "-" * 20
   puts "Nombre de cryptomonnaies contennant le mot 'Coin' dans leur nom : " + crypto_coin(crypto_values).to_s
   puts "-" * 20
-  puts "Nombre de cryptomonnaies dont la valeur est inférieure à $6000 : " + values_under_6000(crypto_values).to_s
+  print "Il y a #{values_under_6000(crypto_values)} cryptomonnaies dont la valeur est inférieure à $6000, les voici : "
+  puts affichage_keys(hash_under_6000(crypto_values))
   puts "-" * 20
   puts "Crypto ayant la plus grande valeur parmis celles-ci : " + biggest_value(hash_under_6000(crypto_values)).to_s
   puts "-" * 20

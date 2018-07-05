@@ -34,14 +34,14 @@ def smallest_value(x)
 
 end
 
-puts "Voici la crypto qui as la plus grosse valeur : " + smallest_value(get_f_values(@crypto_values))
+puts "Voici la crypto qui as la plus petite valeur : " + smallest_value(get_f_values(@crypto_values))
 
 
 def crypto_coin(x)
 	n = 0
-	x.each do
-#		if 	x.has_key?("Coin") || x.has_key?("coin")
-		if x.any? {|k| k.include? "Coin"}
+	x.each do |key, value|
+    key = key.downcase
+		if key.include?("coin")
 			n += 1
 		end
 	end

@@ -2,11 +2,35 @@ journalistes = ["@jcunniet","@PaulLampon","@Aziliz31","@ssoumier","@marionsouzea
 
 puts journalistes.length
 
-def contiens_numéro(x)
-    x.each do
-
+def contains_number(x)
+  i = 0
+  n = 0
+  x.each do
+    if x[i].include?("0") or x[i].include?("1") or x[i].include?("2") or x[i].include?("3") or x[i].include?("4") or x[i].include?("5") or x[i].include?("6") or x[i].include?("7") or x[i].include?("8") or x[i].include?("9")
+      n += 1
+    else
     end
+    i += 1
+  end
+  return n
 end
+
+puts contains_number(journalistes)
+
+#def contain_number_2(x)
+#  n = 0
+#  x.each do
+#    j = 0
+#    for j in [0..9] do
+#      if x[i].include?(j)
+#        n +=1
+#      end
+#    end
+#  end
+#  return n
+#end
+
+#puts contain_number_2(journalistes)
 
 def aude(x)
   x.each do
@@ -33,5 +57,5 @@ def underscore(x)
 end
 
 def alphabetique(x)
-  
+
 end

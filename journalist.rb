@@ -48,12 +48,20 @@ end
 
 puts "Nbr d'aude: "  + aude(journalistes).to_s
 
-
 def majuscule(x)
+  i = 0
+  n = 0
   x.each do
-
+    j = x[i].split(//)
+    if j[1] == j[1].upcase
+      n +=1
+    end
+    i += 1
   end
+  return n
 end
+
+puts majuscule(journalistes)
 
 def contiens_majuscule(x)
   x.each do

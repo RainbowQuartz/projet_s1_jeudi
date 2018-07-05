@@ -3,113 +3,82 @@ journalistes = ["@jcunniet","@PaulLampon","@Aziliz31","@ssoumier","@marionsouzea
 
 
 def contains_number(x)
-  i = 0
-  n = 0
-  x.each do
+  i = 0 #initialise le compteur de boucles
+  n = 0 #initialise le compteur de mots contenant des nombres
+  x.each do #boucle à travers x
     if x[i].include?("0") or x[i].include?("1") or x[i].include?("2") or x[i].include?("3") or x[i].include?("4") or x[i].include?("5") or x[i].include?("6") or x[i].include?("7") or x[i].include?("8") or x[i].include?("9")
-      n += 1
+          #la ligne précédente permet de vérifier que le string que l'on a pris à l'index i de l'array x contiens au moins un nombre
+      n += 1 #incrémente le compteur de mots contenant un nombre
     end
-    i += 1
+    i += 1 #incrémente le compteur de boucle
   end
   return n
 end
-
-#def contain_number_2(x)
-#  n = 0
-#  x.each do
-#    j = 0
-#    for j in [0..9] do
-#      if x[i].include?(j)
-#        n +=1
-#      end
-#    end
-#  end
-#  return n
-#end
-
-#puts contain_number_2(journalistes)
 
 def aude(x)
-    i = 0
-    n = 0
-    x.each do
-      if x[i].include?('Aude') || x[i].include?('aude')
-        n +=1
+    i = 0 #initialisation du compteur de boucles
+    n = 0 #initialisation du compteur de nombre de handle twitter contenant le prénom Aude
+    x.each do #boucle à travers x
+      x[i] = x[i].downcase #le string contenu dans x à l'index i prend la même valeur mais passée en minuscule
+      if x[i].include?('aude') #vérifie si la string contenue à l'index i de x passée en minuscule contient la string "aude"
+        n +=1 #incrémente le compteur de mot
       end
-      i += 1
+      i += 1 #incrémente le compteur de boucles 
   end
   return n
-end
 
+end
 def majuscule(x)
-  i = 0
-  n = 0
-  x.each do
-    j = x[i].split(//)
-    if j[1] == j[1].upcase
-      n +=1
+  i = 0 #initialisation du compteur permettant de boucler dans x
+  n = 0 #initialisation du compteur du nombre de mots commençant par une majuscule
+  x.each do #boucle dans x
+    j = x[i].split(//) #introduction de l'array j qui prend la valeur de la string que l'on a abtenu avec la boucle de x après l'avoir transformé en une succession de strings d'un caractère
+    if j[1] == j[1].upcase #vérifie si le caractère à l'index 1 de j, donc le premier caractère après l'arobase (qui est à l'index o), est en majuscule
+      n +=1 #incrémente le compteur si le nom commence par une majuscule
     end
-    i += 1
+    i += 1 #incrémentation du compteur de boucle
   end
   return n
 end
 
 def contiens_majuscule(x)
-  i = 0
-  n = 0
-  x.each do
-    if x[i] != x[i].downcase
-      n +=1
+  i = 0 #initialisation d'un compteur permettant de boucler dans l'index de x
+  n = 0 #initialisation d'un compteur du nombre de handles dans x contenant au moins une majuscule
+  x.each do #boucle dans x
+    if x[i] != x[i].downcase #check si le string dans à l'index i de x est différent de lui-même en downcase
+      n +=1 #si c'est le cas, le compteur de mots en majuscule s'incrémente
     end
-    i += 1
+    i += 1 #le compteur de boule s'incrémente
   end
   return n
 end
-
-=begin  autres methodes
-def majuscles_2(x)
-  n = 0
-  i = 0
-  x.each do
-    j = x[i]
-    if j[1] == j[1].upcase
-    n += 1
-    end
-    i += 1
-  end
-  return n
-end
-
-puts majuscles_2(journalistes)
-
-=end
 
 def underscore(x)
-  i = 0
-  n = 0
-  x.each do
-    j = x[i].split(//)
-    k = 0
-    j.each do
-      if j[k] == '_'
-        n +=1
+  i = 0 #initialise une variable de compteur qui permettra de boucler dans l'index de x
+  n = 0 #initialise une autre variable de compteur qui permet de compter le nombre d'underscore
+  x.each do #boucle à travers la liste x
+    j = x[i].split(//) #range les strings extraites de x dans la variable j après les avoir transformées en tableau dont chaque item contient un seul caractere string
+    k = 0 #initialisation d'un nouveau compteur qui permet de boucler dans l'index de j
+    j.each do #boucle dans l'array j
+      if j[k] == '_' #checke si la string prise dans j équivaut à '_'
+        n +=1 #incrémente le compteur n
       end
-      k += 1
+      k += 1 #incrémente le compteur
     end
-    i += 1
+    i += 1 #incrémente le compteur
   end
   return n
 end
 
 def alphabetique(x)
-  n =[]
-  n = x.sort_by { |word| word.downcase }
+  n =[] #initialise un nouvel array
+  n = x.sort_by { |word| word.downcase } #range dans l'array n les strings de l'array x après les avoir trié en passant par une fonction permettant d'émuler le temps du tri la méthode .downcase
   return n
 end
 
-def perform(x)
+def perform(x) #fonction regrouppant les autres et ajoutant du texte afin d'améliorer la lisibilité des réponses
   puts "-" * 20
-  puts x.length
+  puts "Nombre de journalistes : " + x.length.to_s
   puts "-" * 20
   puts "Nombre de journalistes avec des nombres dans leur handle : " + contains_number(x).to_s
   puts "-" * 20
